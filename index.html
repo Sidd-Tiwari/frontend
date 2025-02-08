@@ -23,6 +23,7 @@
         }
         h2 {
             margin-bottom: 30px;
+            font-weight: normal;
         }
         .container {
             background: rgba(255, 255, 255, 0.2);
@@ -38,6 +39,7 @@
         .btn {
             margin: 10px;
             transition: transform 0.3s ease-in-out;
+            border-radius: 25px;
         }
         .btn:hover {
             transform: scale(1.1);
@@ -48,21 +50,32 @@
                 max-width: 90%;
             }
         }
+        .btn-custom {
+            font-weight: bold;
+            border-radius: 30px;
+            padding: 12px 30px;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to DevMatch</h1>
     <h2>Connecting Developers with Opportunities and Projects</h2>
+    
+    <!-- Developer Section -->
     <div class="container">
         <h3>Developer Section</h3>
-        <a href="dev_register.html" class="btn btn-primary">Developer Register</a>
-        <a href="dev_login.html" class="btn btn-secondary">Developer Login</a>
+        <a href="dev_register.html" class="btn btn-custom btn-primary">Developer Register</a>
+        <a href="dev_login.html" class="btn btn-custom btn-secondary">Developer Login</a>
     </div>
+    
+    <!-- Recruiter Section -->
     <div class="container">
         <h3>Recruiter Section</h3>
-        <a href="rec_register.html" class="btn btn-success">Recruiter Register</a>
-        <a href="rec_login.html" class="btn btn-warning">Recruiter Login</a>
+        <a href="rec_register.html" class="btn btn-custom btn-success">Recruiter Register</a>
+        <a href="rec_login.html" class="btn btn-custom btn-warning">Recruiter Login</a>
     </div>
+
+    <!-- External JS Libraries -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

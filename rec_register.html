@@ -56,7 +56,7 @@
 <body>
     <div class="container">
         <h2>Recruiter Registration</h2>
-        <form action="login.html" method="post" id="registrationForm">
+        <form id="registrationForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
@@ -107,7 +107,36 @@
 
             if (!isValid) {
                 event.preventDefault();
+                return;
             }
+
+            // Prevent form from submitting the default way and handle via JS
+            event.preventDefault();
+
+            const registrationData = {
+                name: document.getElementById('name').value,
+                email: email.value,
+                password: document.getElementById('password').value,
+                adhar: adhar.value,
+                company: document.getElementById('company').value
+            };
+
+            fetch('https://webx-backend.onrender.com/recruiterRegister', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(registrationData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Registration Success:', data);
+                window.location.href = 'login.html';  // Redirect to login page after success
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Registration failed! Please try again.');
+            });
         });
     </script>
 </body>

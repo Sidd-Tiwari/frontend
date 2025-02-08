@@ -87,7 +87,7 @@
                 password: password
             };
 
-            fetch('YOUR_SERVER_ENDPOINT_URL', {
+            fetch('https://webx-backend.onrender.com/devLogin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -103,6 +103,7 @@
             .catch(error => {
                 // Handle error response
                 console.error('Error:', error);
+                alert('Login failed! Please try again.');
             });
         });
     </script>
