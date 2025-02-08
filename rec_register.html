@@ -84,58 +84,67 @@
     </div>
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            const email = document.getElementById('email');
-            const emailError = document.getElementById('emailError');
-            const adhar = document.getElementById('adhar');
-            const adharError = document.getElementById('adharError');
+            event.preventDefault();
 
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const adhar = document.getElementById('adhar').value;
+            const company = document.getElementById('company').value;
+
+            const formData = {
+                name: name,
+                email: email,
+                password: password,
+                adhar: adhar,
+                company: company
+            };
+
+            // Perform client-side validation
+            const emailError = document.getElementById('emailError');
+            const adharError = document.getElementById('adharError');
             let isValid = true;
 
-            if (!email.checkValidity()) {
+            // Email validation
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
                 emailError.textContent = 'Please enter a valid email address.';
                 isValid = false;
             } else {
                 emailError.textContent = '';
             }
 
-            if (!adhar.checkValidity()) {
-                adharError.textContent = 'Aadhaar number must be 12 digits.';
+            // Aadhar number validation
+            if (!adhar.match(/^\d{12}$/)) {
+                adharError.textContent = 'Aadhar number must be 12 digits.';
                 isValid = false;
             } else {
                 adharError.textContent = '';
             }
 
             if (!isValid) {
-                event.preventDefault();
-                return;
+                return; // Stop submission if validation fails
             }
 
-            // Prevent form from submitting the default way and handle via JS
-            event.preventDefault();
-
-            const registrationData = {
-                name: document.getElementById('name').value,
-                email: email.value,
-                password: document.getElementById('password').value,
-                adhar: adhar.value,
-                company: document.getElementById('company').value
-            };
-
-            fetch('https://webx-backend.onrender.com/recruiterRegister', {
+            // Send form data to the backend
+            fetch('https://webx-backend.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(registrationData)
+                body: JSON.stringify(formData)
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Registration Success:', data);
-                window.location.href = 'login.html';  // Redirect to login page after success
+                if (data.success) {
+                    alert('Registration successful!');
+                    window.location.href = 'login.html'; // Redirect to login page
+                } else {
+                    alert('Registration failed! Please try again.');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Registration failed! Please try again.');
+                alert('There was an error with the registration process. Please try again.');
             });
         });
     </script>
