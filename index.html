@@ -7,19 +7,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
             text-align: center;
+            color: white;
+        }
+        h1 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 30px;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.2);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
         }
         .btn {
             margin: 10px;
@@ -29,21 +43,23 @@
             transform: scale(1.1);
             box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to DevMatch</h1>
-    <h2>
-        <p>Connecting Developers with Opportunities and Projects</p>
-    </h2>
+    <h2>Connecting Developers with Opportunities and Projects</h2>
     <div class="container">
-        
-        
+        <h3>Developer Section</h3>
         <a href="dev_register.html" class="btn btn-primary">Developer Register</a>
         <a href="dev_login.html" class="btn btn-secondary">Developer Login</a>
-        
     </div>
     <div class="container">
+        <h3>Recruiter Section</h3>
         <a href="rec_register.html" class="btn btn-success">Recruiter Register</a>
         <a href="rec_login.html" class="btn btn-warning">Recruiter Login</a>
     </div>
