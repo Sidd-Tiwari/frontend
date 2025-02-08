@@ -3,35 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
+    <title>Recruiter Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         .container {
-            background-color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .container h2 {
+            color: white;
+            font-weight: bold;
+        }
+        .form-group label {
+            color: white;
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+        }
+        .form-control::placeholder {
+            color: #ddd;
+        }
+        .btn {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            margin-top: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(67, 206, 162, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="text-center">Recruiter Login</h2>
-        <form action="index.html" method="post">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" required>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
@@ -39,5 +76,35 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const loginData = {
+                email: email,
+                password: password
+            };
+
+            fetch('YOUR_SERVER_ENDPOINT_URL', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle successful response
+                console.log('Success:', data);
+                window.location.href = 'index.html'; // Redirect to home page
+            })
+            .catch(error => {
+                // Handle error response
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
