@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Developer Registration</h2>
+        <form action="login.html" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="salary">Expected Salary (INR)</label>
+                <input type="number" class="form-control" id="salary" required>
+            </div>
+            <div class="form-group">
+                <label for="portfolio">Portfolio Link</label>
+                <input type="url" class="form-control" id="portfolio" required>
+            </div>
+            <div class="form-group">
+                <label for="job_location">Expected Job Location</label>
+                <input type="text" class="form-control" id="job_location" required>
+            </div>
+            <div class="form-group">
+                <label for="projects">Projects</label>
+                <input type="url" class="form-control" id="projects" required>
+                <label for="project_description">Project Description</label>
+                <textarea class="form-control" id="project_description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="job_status">Current Job Status</label>
+                <select class="form-control" id="job_status" required>
+                    <option value="working">Working</option>
+                    <option value="freelance">Freelance</option>
+                    <option value="unemployed">Unemployed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <select class="form-control" id="skills" multiple required>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                    <option value="sql">SQL</option>
+                    <option value="jquery">jQuery</option>
+                    <option value="bootstrap">Bootstrap</option>
+                    <option value="react">React</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

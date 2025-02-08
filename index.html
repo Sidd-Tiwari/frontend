@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMatch: Developer Hiring & Collaboration Hub</title>
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #1b1b1b;
+        color: #e0e0e0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header {
+        background: linear-gradient(90deg, #4b6cb7, #182848);
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        color: #ffffff;
+    }
+    .container {
+        margin: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .panel {
+        background-color: #2b2b2b;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+    .panel img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .panel h2 {
+        margin: 10px 0;
+        color: #00bcd4;
+    }
+    .panel p {
+        font-size: 16px;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .buttons button {
+        background-color: #00bcd4;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    footer {
+        margin-top: 30px;
+        color: #9e9e9e;
+    }
+
+</style>
+<body>
+    <header>
+        <h1>DevMatch</h1>
+        <p>Connecting Developers with Opportunities and Projects</p>
+    </header>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Portfolio Showcase</h2>
+            <img src="./img/portfolio.png" alt="Portfolio Showcase">
+            <p>Showcase your skills and projects.</p>
+            <div class="buttons">
+                <button>View Portfolio</button>
+                <button>Upload Projects</button>
+            </div>
+        </div>
+        <div class="panel">
+            <h2>Skill-Based Filtering</h2>
+            <img src="./img/skills.png" alt="Skills">
+            <p>Filter job opportunities based on your skills.</p>
+            <div class="buttons">
+                <button>Filter Jobs</button>
+                <button>Update Skills</button>
+            </div>
+        </div>
+        <div class="panel">
+            <h2>AI-Powered Job Recommendations</h2>
+            <img src="./img/ai.png" alt="AI Recommendations">
+            <p>Get personalized job recommendations.</p>
+            <div class="buttons">
+                <button>View Recommendations</button>
+                <button>Update Preferences</button>
+            </div>
+        </div>
+        <div class="panel">
+            <h2>User Profile</h2>
+            <img src="./img/userprofile.png" alt="User Profile">
+            <p>Manage your profile and credentials.</p>
+            <div class="buttons">
+                <button>View Profile</button>
+                <button>Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DevMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add your JavaScript functionality here if needed
+    </script>
+</body>
+</html>
