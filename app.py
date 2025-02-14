@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify, redirect
 from enum import Enum
+from flask_cors import CORS
 
 app = Flask(__name__) 
+CORS(app)
 
 # Define RecruiterProfile Class
 class RecruiterProfile:
-    def _init_(self, name, email, phone, password, company, adhar):
+    def __init__(self, name, email, phone, password, company, adhar):
         self.name = name
         self.email = email
         self.phone = phone
@@ -15,7 +17,7 @@ class RecruiterProfile:
 
 # Define Recruiters Class
 class Recruiters:
-    def _init_(self):
+    def __init__(self):
         self.recruiters = {}
 
     def addUser(self, recruiter: RecruiterProfile):
@@ -41,7 +43,7 @@ class JobStatus(Enum):
 
 # Define UserProfile Class
 class UserProfile:
-    def _init_(self, name, email, password, adhar, phone, expectedSalary, portfolio, jobLocation, projects, currentJob, skills):
+    def __init__(self, name, email, password, adhar, phone, expectedSalary, portfolio, jobLocation, projects, currentJob, skills):
         self.name = name
         self.email = email
         self.password = password
@@ -60,7 +62,7 @@ class UserProfile:
 
 # Define Users Class for User Management
 class Users:
-    def _init_(self):
+    def __init__(self):
         self.users = {}
 
     def addUser(self, user: UserProfile):
@@ -95,7 +97,6 @@ class Users:
             })
         
         return filtered_users
-
 # Initialize User Database
 users_db = Users()
 
